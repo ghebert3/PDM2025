@@ -1,0 +1,35 @@
+# Reaction Game Documentation
+
+- Name: Arduino-p5.js Reaction Game  
+- Goal: Test players’ reflexes with colored LEDs and buttons
+- Arduino Uno, p5.js + WebSerial, Tone.js for audio
+
+# Descrption
+A reflex-testing game built with Arduino, p5.js (WebSerial) and Tone.js, where players respond to colored LED cues with buttons.
+Players see a black “get ready” circle, then one of four cues:
+1. **Red**, **Yellow**, or **Green** LED → press the matching physical button.  
+2. **RGB** cue → click the canvas with your mouse.
+They have a limited time window to respond correctly. Each correct earns a point and speeds up the music & timer, each incorrect press flashes all LEDs, plays an error buzzer, and subtracts a life. After three lives the game ends
+
+## How It Works
+
+- **Arduino**:  
+  - Listens on Serial for `GO_RED`, `GO_YELLOW`, `GO_GREEN`, `GO_RGB`, `OFF`, `ALL_ON`, `FAIL`.  
+  - Lights the corresponding LED(s).  
+  - Reports back `PRESS_RED`, `PRESS_YELLOW`, `PRESS_GREEN` on button presses.
+
+- **p5.js Front-End**:  
+  - Uses WebSerial to send commands and receive button events.  
+  - Renders the game state (Welcome, Ready, Go, Wrong, Game Over).  
+  - Uses Tone.js with two loops chill start screen and driving gameplay—plus a wrong-answer noise.
+
+## Future Development
+- Power-ups
+- Multiplayer mode
+- More Audio Cues
+
+## Demo Video and Images
+<https://www.dropbox.com/scl/fi/2q54hgnjxaszoodw4a03k/ArduinoPicture2.jpg?rlkey=6tar8o2cezcfbm3ayouqnxln2&st=hf9zat5p&dl=0>
+<https://www.dropbox.com/scl/fi/opno7p1jtmihrt6tgxsr7/Arduino-Picture1.jpg?rlkey=ppfua1m3spkg3b90460dpc8p7&st=bb0zy29b&dl=0>
+<https://www.dropbox.com/scl/fi/dhj8b9ab8e9gm9e2re8go/FinalProject.mp4?rlkey=203zh7jg9488641yzfikpw65y&st=ieh2usq0&dl=0>
+https://www.dropbox.com/scl/fi/0cnk9shzu5f7lyhwz0cia/ArduinoPicture3.jpg?rlkey=kqq1bpst0mytli2l7ubakm8ff&st=1y7qllud&dl=0
