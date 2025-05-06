@@ -1,0 +1,39 @@
+body {
+    font-family: sans-serif;
+    max-width: 800px;
+    margin: 2rem auto;
+    line-height: 1.5;
+    color: #333;
+    background: #fafafa;
+    padding: 1rem;
+  }
+  h1, h2, h3 {
+    color: #007acc;
+  }
+  a {
+    color: #007acc;
+    text-decoration: none;
+  }
+  details {
+    margin-top: 1rem;
+  }
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  video {
+    display: block;
+    margin: 1rem 0;
+    max-width: 100%;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+    margin: 0.5rem 0;
+  }
+  pre {
+    background: #eee;
+    padding: 1em;
+    overflow-x: auto;
+  }
+  
