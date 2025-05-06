@@ -4,7 +4,7 @@
 - Goal: Test players’ reflexes with colored LEDs and buttons
 - Arduino Uno, p5.js + WebSerial, Tone.js for audio
 
-# Descrption
+# Description
 A reflex-testing game built with Arduino, p5.js (WebSerial) and Tone.js, where players respond to colored LED cues with buttons.
 Players see a black “get ready” circle, then one of four cues:
 1. **Red**, **Yellow**, or **Green** LED → press the matching physical button.  
