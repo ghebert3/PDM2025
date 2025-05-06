@@ -1,46 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Reaction Game Docs</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reaction Game Documentation</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Reaction Game Documentation</h1>
-  <ul>
-    <li><strong>Name:</strong> Arduino-p5.js Reaction Game</li>
-    <li><strong>Goal:</strong> Test players’ reflexes with colored LEDs and buttons</li>
-    <li><strong>Tech:</strong> Arduino Uno, p5.js + WebSerial, Tone.js</li>
-  </ul>
+  <header>
+    <h1>Reaction Game Documentation</h1>
+    <p><strong>Name:</strong> Arduino-p5.js Reaction Game<br>
+       <strong>Goal:</strong> Test players’ reflexes with colored LEDs and buttons<br>
+       <strong>Tech:</strong> Arduino Uno · p5.js + WebSerial · Tone.js for audio
+    </p>
+  </header>
 
-  <h2>Description</h2>
-  <p>
-    A reflex-testing game built with Arduino, p5.js (WebSerial) and Tone.js…
-  </p>
+  <main>
+    <section>
+      <h2>Description</h2>
+      <p>
+        A reflex-testing game built with Arduino, p5.js (WebSerial) and Tone.js. Players see
+        a black “get ready” circle, then one of four cues:
+      </p>
+      <ol>
+        <li><strong>Red</strong>, <strong>Yellow</strong> or <strong>Green</strong> LED → press the matching physical button.</li>
+        <li><strong>RGB</strong> cue → click the canvas with your mouse.</li>
+      </ol>
+      <p>
+        They have a limited time window to respond correctly. Each correct earns a point
+        and speeds up the music & timer; each incorrect press flashes all LEDs, plays an
+        error buzzer, and subtracts a life. After three lives the game ends.
+      </p>
+    </section>
 
-  <h2>How It Works</h2>
-  <h3>Arduino</h3>
-  <pre><code>
+    <section>
+      <h2>How It Works</h2>
+
+      <h3>Arduino Sketch</h3>
+      <pre><code>
 GO_RED
 GO_YELLOW
-  … etc.
-  </code></pre>
+GO_GREEN
+GO_RGB
+OFF
+ALL_ON
+FAIL
+      </code></pre>
+      <ul>
+        <li>Listens for the above commands and lights the corresponding LED(s).</li>
+        <li>On button-press, sends back <code>PRESS_RED</code>, <code>PRESS_YELLOW</code> or <code>PRESS_GREEN</code>.</li>
+      </ul>
 
-  <h3>p5.js Front-End</h3>
-  <ul>
-    <li>Uses WebSerial to send commands</li>
-    <li>Renders states: Welcome, Ready, Go, Wrong, Game Over</li>
-    <li>Drives Tone.js loops + error buzz</li>
-  </ul>
+      <h3>p5.js Front-End</h3>
+      <ul>
+        <li>Uses WebSerial to send commands &amp; receive button events.</li>
+        <li>Renders game states: Welcome → Ready → Go → Wrong → Game Over.</li>
+        <li>Drives Tone.js with two loops (chill start-screen &amp; driving gameplay) plus an error buzz.</li>
+      </ul>
+    </section>
 
-  <h2>Future Development</h2>
-  <ul>
-    <li>Power-ups</li>
-    <li>Multiplayer mode</li>
-    <li>More audio cues</li>
-  </ul>
+    <section>
+      <h2>Future Development</h2>
+      <ul>
+        <li>Power-ups &amp; new game modes</li>
+        <li>Multiplayer support</li>
+        <li>Additional audio cues</li>
+      </ul>
+    </section>
 
-  <!-- etc… -->
+    <section>
+      <h2>Demo Video &amp; Images</h2>
+      <p><a href="https://www.dropbox.com/scl/fi/2q54hgnjxaszoodw4a03k/ArduinoPicture2.jpg?dl=0">Breadboard wiring diagram</a></p>
+      <p><a href="https://www.dropbox.com/scl/fi/opno7p1jtmihrt6tgxsr7/Arduino-Picture1.jpg?dl=0">Assembled prototype</a></p>
+      <p><a href="https://www.dropbox.com/scl/fi/0cnk9shzu5f7lyhwz0cia/ArduinoPicture3.jpg?dl=0">Alternate wiring view</a></p>
+      <p><a href="https://www.dropbox.com/scl/fi/dhj8b9ab8e9gm9e2re8go/FinalProject.mp4?dl=0">Demo video</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>MIT © Your Name</p>
+  </footer>
 </body>
 </html>
