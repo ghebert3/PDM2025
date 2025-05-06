@@ -9,9 +9,10 @@
 <body>
   <header>
     <h1>Reaction Game Documentation</h1>
-    <p><strong>Name:</strong> Arduino-p5.js Reaction Game<br>
-       <strong>Goal:</strong> Test players’ reflexes with colored LEDs and buttons<br>
-       <strong>Tech:</strong> Arduino Uno · p5.js + WebSerial · Tone.js for audio
+    <p>
+      <strong>Name:</strong> Arduino-p5.js Reaction Game<br>
+      <strong>Goal:</strong> Test players’ reflexes with colored LEDs and buttons<br>
+      <strong>Tech:</strong> Arduino Uno · p5.js + WebSerial · Tone.js for audio
     </p>
   </header>
 
@@ -28,34 +29,28 @@
       </ol>
       <p>
         They have a limited time window to respond correctly. Each correct earns a point
-        and speeds up the music & timer; each incorrect press flashes all LEDs, plays an
-        error buzzer, and subtracts a life. After three lives the game ends.
+        and speeds up the music &amp; timer; each incorrect press flashes all LEDs, plays an
+        error buzzer, and subtracts a life. After three lives, the game ends.
       </p>
     </section>
 
     <section>
       <h2>How It Works</h2>
-
-      <h3>Arduino Sketch</h3>
-      <pre><code>
-GO_RED
-GO_YELLOW
-GO_GREEN
-GO_RGB
-OFF
-ALL_ON
-FAIL
-      </code></pre>
       <ul>
-        <li>Listens for the above commands and lights the corresponding LED(s).</li>
-        <li>On button-press, sends back <code>PRESS_RED</code>, <code>PRESS_YELLOW</code> or <code>PRESS_GREEN</code>.</li>
-      </ul>
-
-      <h3>p5.js Front-End</h3>
-      <ul>
-        <li>Uses WebSerial to send commands &amp; receive button events.</li>
-        <li>Renders game states: Welcome → Ready → Go → Wrong → Game Over.</li>
-        <li>Drives Tone.js with two loops (chill start-screen &amp; driving gameplay) plus an error buzz.</li>
+        <li><strong>Arduino:</strong>
+          <ul>
+            <li>Listens on Serial for <code>GO_RED</code>, <code>GO_YELLOW</code>, <code>GO_GREEN</code>, <code>GO_RGB</code>, <code>OFF</code>, <code>ALL_ON</code>, <code>FAIL</code>.</li>
+            <li>Lights the corresponding LED(s).</li>
+            <li>Reports back <code>PRESS_RED</code>, <code>PRESS_YELLOW</code>, <code>PRESS_GREEN</code> on button presses.</li>
+          </ul>
+        </li>
+        <li><strong>p5.js Front-End:</strong>
+          <ul>
+            <li>Uses WebSerial to send commands and receive button events.</li>
+            <li>Renders the game state (Welcome, Ready, Go, Wrong, Game Over).</li>
+            <li>Uses Tone.js with two loops (chill start screen and driving gameplay) plus a wrong-answer noise.</li>
+          </ul>
+        </li>
       </ul>
     </section>
 
@@ -80,5 +75,6 @@ FAIL
   <footer>
     <p>MIT © Your Name</p>
   </footer>
+
 </body>
 </html>
